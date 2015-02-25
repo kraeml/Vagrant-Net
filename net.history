@@ -1,0 +1,28 @@
+    1  ip a s
+    2  cd /etc/network/interfaces.d/
+    4  sudo cp eth0.cfg eth2.cfg 
+    5  sudo vi eth2.cfg 
+    6  sudo service networking restart
+    7  ip a s
+    8  sudo apt-get install dnsmasq
+    9  cd ..
+   10  sudo vi dnsmasq.conf 
+   11  cd network/interfaces.d/
+   14  sudo cp eth0.cfg eth1.cfg 
+   15  sudo vi eth1.cfg 
+   16  sudo service networking restart
+   17  ip a s
+   19  ip r s
+   20  ip route del default
+   21  sudo ip route del default
+   22  ip r s
+   23  sudo ip route add default via 192.168.56.1 dev eth2
+   24  ip r s
+   25  ping wwww.heise.de
+   26  ping 192.168.56.1
+   27  nslookup 
+   28  sudo service dnsmasq restart
+   29  nslookup 
+   30  ping www.heise.de
+   32  sudo apt-get install traceroute 
+   33  traceroute www.heise.de
